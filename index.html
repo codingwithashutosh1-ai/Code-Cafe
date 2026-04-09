@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Cafe Interactive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="blackhole-theme">
+    <!-- Background Layer -->
+    <div id="bg-layer"></div>
+
+    <!-- CLOUD CONTAINER -->
+    <div id="cloudContainer"></div>
+
+    <!-- HEADER -->
+    <header>
+        <h1>☕ Code Cafe</h1>
+        <select id="themeSelector">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="blue">Blue</option>
+            <option value="cloud">Cloudy Sky</option>
+            <option value="blackhole">Blackhole</option>
+        </select>
+    </header>
+
+    <!-- MENU -->
+    <section class="menu">
+        <div class="item">
+            <h2>Coffee</h2>
+            <p>₹100</p>
+            <button onclick="addToCart('Coffee', 100)">Add To Cart</button>
+        </div>
+        <div class="item">
+            <h2>Tea</h2>
+            <p>₹50</p>
+            <button onclick="addToCart('Tea', 50)">Add To Cart</button>
+        </div>
+        <div class="item">
+            <h2>Pizza</h2>
+            <p>₹200</p>
+            <button onclick="addToCart('Pizza', 200)">Add To Cart</button>
+        </div>
+        <div class="item">
+            <h2>Burger</h2>
+            <p>₹150</p>
+            <button onclick="addToCart('Burger', 150)">Add To Cart</button>
+        </div>
+    </section>
+
+    <!-- CART -->
+    <section class="cart">
+        <h2>🛒 Your Cart</h2>
+        <div id="cartItems"></div>
+        <h3>Total: ₹<span id="total">0</span></h3>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

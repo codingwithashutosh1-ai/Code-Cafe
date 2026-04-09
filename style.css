@@ -1,0 +1,150 @@
+/* ======================
+   BASIC STYLING
+====================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: 0.5s ease;
+}
+
+/* HEADER */
+header {
+    background: #333;
+    color: #fff;
+    padding: 15px;
+}
+header h1 { margin: 0; }
+header select { margin-left: 20px; padding: 6px; font-size: 16px; }
+
+/* MENU */
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+.menu .item {
+    background: #fff;
+    padding: 18px;
+    border-radius: 10px;
+    width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.menu .item button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.menu .item button:hover {
+    background: #555;
+}
+
+/* CART */
+.cart {
+    margin-top: 30px;
+}
+#cartItems { margin-top: 15px; }
+#cartItems div { margin: 6px 0; font-size: 18px; }
+#cartItems button { margin: 0 8px; padding: 4px 10px; cursor: pointer; }
+
+/* ======================
+   BACKGROUND LAYER
+====================== */
+#bg-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+/* ======================
+   BLACKHOLE DYNAMIC
+====================== */
+.blackhole-theme #bg-layer {
+    background-image: url("blackhole.jpg");
+    animation: zoomBg 20s ease-in-out infinite alternate;
+}
+.blackhole-theme #bg-layer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center,
+        rgba(255,80,0,0.4) 0%,
+        rgba(0,0,0,0.7) 60%,
+        rgba(0,0,0,0.9) 100%);
+    animation: rotateVortex 40s linear infinite;
+}
+@keyframes zoomBg {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+@keyframes rotateVortex {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ======================
+   CLOUD ANIMATION
+====================== */
+#cloudContainer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 250px;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -2;
+}
+.cloud {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.85;
+}
+.cloud::before, .cloud::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+}
+.cloud.small { width: 90px; height: 50px; animation: moveClouds 40s linear infinite; }
+.cloud.small::before { width: 60px; height: 60px; top: -22px; left: 8px; }
+.cloud.small::after { width: 80px; height: 70px; top: -28px; left: 30px; }
+.cloud.medium { width: 140px; height: 70px; animation: moveClouds 55s linear infinite; }
+.cloud.medium::before { width: 90px; height: 90px; top: -30px; left: 15px; }
+.cloud.medium::after { width: 100px; height: 100px; top: -35px; left: 50px; }
+@keyframes moveClouds {
+    from { transform: translateX(-210px); }
+    to { transform: translateX(115vw); }
+}
+
+/* ======================
+   THEMES
+====================== */
+.light-theme { background: #f4f4f4; color: black; }
+.light-theme header { background: #333; color: white; }
+.light-theme .menu .item, .light-theme .cart, .light-theme #cartItems, .light-theme #total, .light-theme button { color: black; background: #fff; }
+.light-theme button:hover { background: #555; }
+
+.dark-theme { background: #121212; color: white; }
+.dark-theme header { background: #1e1e1e; }
+.dark-theme .menu .item, .dark-theme .cart, .dark-theme #cartItems, .dark-theme #total, .dark-theme button { color: white; background: #1f1f1f; }
+.dark-theme button:hover { background: #555; }
+.dark-theme select, .dark-theme option { background: #222; color: white; }
+
+.blue-theme { background: linear-gradient(135deg,#1e3c72,#2a5298); color: white; }
+.blue-theme header { background: #162447; color: white; }
+.blue-theme .menu .item, .blue-theme .cart, .blue-theme #cartItems, .blue-theme #total, .blue-theme button { color: white; background: #1b2a49; }
+.blue-theme button:hover { background-color: #1d4ed8; }
+
+.cloud-theme { background: #87ceeb; color: black; }
+.cloud-theme .menu .item, .cloud-theme .cart, .cloud-theme #cartItems, .cloud-theme #total, .cloud-theme button { color: black; background-color: rgba(255,255,255,0.8); }
+.cloud-theme button:hover { background-color: #333; color: white; }
